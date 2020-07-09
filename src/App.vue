@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div>
+    <keep-alive>
+      <component v-bind:is="currentComponent"></component>
+    </keep-alive>
+    <button class="btn btn-primary" :disabled="previousIsDisabled" @click="passSlide('previous')" >Anterior</button>
+    <button class="btn btn-primary" :disabled="nextIsDisabled" @click="passSlide('next')">Próximo</button>
+  </div>  
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Slide1 from './components/Slide1';
+import Slide2 from './components/Slide2';
 
 export default {
-  name: 'App',
+  data () {
+    return {
+      startedAt: 1,
+      currentComponent: 'slide-1',
+      maxNumberOfSlides: 2,
+    };
+  },
+  methods: {
+    passSlide(action) {
+      let currentSlideNumber = this.currentComponent.split("-")[1];
+      action == 'next' ? currentSlideNumber++ : currentSlideNumber--;
+      if(currentSlideNumber <= this.maxNumberOfSlides && currentSlideNumber >= 1 ) {
+        this.currentComponent = `slide-${currentSlideNumber}`;
+      }
+    },
+  },
   components: {
-    HelloWorld
+    'slide-1' : Slide1,
+    'slide-2' : Slide2,
+  },
+  computed: {
+    nextIsDisabled() {
+      let currentSlideNumber = this.currentComponent.split("-")[1];
+      return currentSlideNumber >= this.maxNumberOfSlides;
+    },
+    previousIsDisabled() {
+      let currentSlideNumber = this.currentComponent.split("-")[1];
+      return currentSlideNumber <= 1;
+    }
   }
+
+  
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
