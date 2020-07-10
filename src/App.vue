@@ -1,48 +1,115 @@
 <template>
   <div>
-    <keep-alive>
-      <component v-bind:is="currentComponent"></component>
-    </keep-alive>
-    <button class="btn btn-primary" :disabled="previousIsDisabled" @click="passSlide('previous')" >Anterior</button>
-    <button class="btn btn-primary" :disabled="nextIsDisabled" @click="passSlide('next')">Próximo</button>
+    <div class="slides p-5">
+        <transition name="component-fade"
+                    mode="out-in">
+          <router-view></router-view>
+        </transition>
+    </div>
+    <div class="footer">
+      <div class="p-2 buttons d-flex justify-content-around">
+        <router-link :to="previous">
+          <button class="btn btn-info" :disabled="previousIsDisabled" >Próximo</button>
+        </router-link>
+        <div class="slide-count">
+          {{slideCount}}
+        </div>
+        <router-link :to="next">
+          <button class="btn btn-info" :disabled="nextIsDisabled" >Próximo</button>
+        </router-link>
+      </div>
+    </div>
   </div>  
 </template>
 <script>
-import Slide1 from './components/Slide1';
-import Slide2 from './components/Slide2';
 
 export default {
   data () {
     return {
       startedAt: 1,
       currentComponent: 'slide-1',
-      maxNumberOfSlides: 2,
+      maxNumberOfSlides: 4,
     };
   },
   methods: {
     passSlide(action) {
-      let currentSlideNumber = this.currentComponent.split("-")[1];
+      let currentSlideNumber = this.$route.name;
       action == 'next' ? currentSlideNumber++ : currentSlideNumber--;
-      if(currentSlideNumber <= this.maxNumberOfSlides && currentSlideNumber >= 1 ) {
-        this.currentComponent = `slide-${currentSlideNumber}`;
-      }
+      this.$router.push(`/${currentSlideNumber}`);
     },
-  },
-  components: {
-    'slide-1' : Slide1,
-    'slide-2' : Slide2,
   },
   computed: {
     nextIsDisabled() {
-      let currentSlideNumber = this.currentComponent.split("-")[1];
-      return currentSlideNumber >= this.maxNumberOfSlides;
+      let currentSlideNumber = this.$route.name;
+      return parseInt(currentSlideNumber) >= this.maxNumberOfSlides;
     },
     previousIsDisabled() {
-      let currentSlideNumber = this.currentComponent.split("-")[1];
+      let currentSlideNumber = this.$route.name;
       return currentSlideNumber <= 1;
+    },
+    slideCount() {
+      let currentSlideNumber = this.$route.name;
+      return `${currentSlideNumber}/${this.maxNumberOfSlides}`;
+    },
+    next () {
+      let currentSlideNumber = this.$route.name;
+      currentSlideNumber++;
+      return `/${currentSlideNumber}`;
+    },
+    previous () {
+      let currentSlideNumber = this.$route.name;
+      currentSlideNumber--;
+      return `/${currentSlideNumber}`;
     }
+  },
+  created () {
+    window.addEventListener("keyup", e => {
+      if (e.keyCode == 37) {
+        let currentSlideNumber = this.$route.name;
+        currentSlideNumber--;
+        if(currentSlideNumber >= 1) {
+          this.$router.push(`/${currentSlideNumber}`)
+        }
+      }
+
+      if (e.keyCode == 39 || e.keyCode == 32) {
+        let currentSlideNumber = this.$route.name;
+        currentSlideNumber++;
+        if(currentSlideNumber <= this.maxNumberOfSlides) {
+          this.$router.push(`/${currentSlideNumber}`)
+        }
+      }
+
+    });
   }
 
   
 }
 </script>
+<style lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: lightcyan;
+    .slides {
+      width: 100%;
+      min-height: 75vh;
+    }
+
+    .buttons {
+      width: 100%;
+    }
+    .slide-count {
+      font-weight: bold;
+    }
+  }
+
+  .component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+  }
+
+  .component-fade-enter, .component-fade-leave-to
+  /* .component-fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+</style>
