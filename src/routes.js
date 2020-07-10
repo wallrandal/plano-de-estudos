@@ -5,6 +5,7 @@ import Slide4 from './slides/Slide4.vue';
 
 
 export const routes = [
+    { path: '', redirect: '/1' },
     { path: '/1', component: Slide1, name: 1 },
     { path: '/2', component: Slide2, name: 2 },
     { path: '/3', component: Slide3, name: 3 },

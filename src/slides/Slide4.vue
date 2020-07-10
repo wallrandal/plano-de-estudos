@@ -14,7 +14,7 @@ export default {
     data () {
         return {
             images: [
-                {alt: 'certificado', src: '/images/certificado.png'},
+                {alt: 'certificado', src: '/images/certificado1.png'},
                 {alt: 'certificado', src: '/images/certificado3.png'},
                 {alt: 'certificado', src: '/images/certificado4.png'},
                 {alt: 'certificado', src: '/images/certificado5.png'},
