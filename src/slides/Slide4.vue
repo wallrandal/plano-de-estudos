@@ -1,52 +1,42 @@
 <template>
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <figure v-for="(image, index) in imagesShow" :key="index">
-                <transition>
-                    <img class="img-fluid" :src="image.src" :alt="image.alt">    
-                </transition>
-            </figure>
+        <div class="d-flex flex-wrap">
+            <div class="image m-2" style="border: 1px solid pink" v-for="(image, index) in images" :key="index">
+                <img :src="image.src" :alt="image.alt" v-show="image.status">
+            </div>
         </div>
     </div>
 </template>
 <script>
+
 export default {
     data () {
         return {
             images: [
-                {alt: 'certificado', src: '/images/certificado1.png'},
-                {alt: 'certificado', src: '/images/certificado3.png'},
-                {alt: 'certificado', src: '/images/certificado4.png'},
-                {alt: 'certificado', src: '/images/certificado5.png'},
-                {alt: 'github', src: '/images/github.png'},
+                {status: true, alt: 'certificado', src: '/images/certificado1.png'},
+                {status: false, alt: 'certificado', src: '/images/certificado3.png'},
+                {status: false, alt: 'certificado', src: '/images/certificado4.png'},
+                {status: true, alt: 'certificado', src: '/images/certificado5.png'},
+                {status: false, alt: 'github', src: '/images/github.png'},
             ],
-            imagesShow: [],
         };
     },
-    created () {
-        let i = 0;
-
-        const interval = setInterval(() => {
-            if(i < this.images.length) {
-                this.imagesShow.push(this.images[i]);
-                
-            } else {
-                clearInterval(interval);
-            }
-            i++;
-        }, 500);
-    }
 }
 </script>
 <style lang="scss" scoped >
 .container {
     min-height: 75vh;
-    .row {
+    .image{
+        min-height: 30vh;
+        max-height: 30vh;
+        min-width: 40vh;
+        max-width: 40vh;
         img {
-            max-height: 30vh;
-            width: auto;
+            min-height: inherit;
+            max-height: inherit;
+            min-width: inherit;
+            max-width: inherit;
         }
     }
 }
-
 </style>
