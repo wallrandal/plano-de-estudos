@@ -13,11 +13,11 @@ export default {
     data () {
         return {
             images: [
-                {status: true, alt: 'certificado', src: '/images/certificado1-min.png'},
-                {status: false, alt: 'certificado', src: '/images/certificado2-min.png'},
-                {status: false, alt: 'certificado', src: '/images/certificado3-min.png'},
-                {status: true, alt: 'certificado', src: '/images/certificado4-min.png'},
-                {status: false, alt: 'github', src: '/images/github-min.png'},
+                {status: true, alt: 'certificado', src: 'https://i.imgur.com/gCTq5gs.png'},
+                {status: true, alt: 'certificado', src: 'https://i.imgur.com/Ml0gl5S.png'},
+                {status: true, alt: 'certificado', src: 'https://i.imgur.com/xZQCuYK.png'},
+                {status: true, alt: 'certificado', src: 'https://i.imgur.com/oNtvc6y.png'},
+                {status: true, alt: 'github', src: 'https://i.imgur.com/s2nZg3F.png'},
             ],
         };
     },
@@ -30,7 +30,7 @@ export default {
         min-height: 30vh;
         max-height: 30vh;
         min-width: 40vh;
-        max-width: 40vh;
+        max-width: 80vh;
         img {
             min-height: inherit;
             max-height: inherit;
