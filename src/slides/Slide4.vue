@@ -2,7 +2,7 @@
     <div class="container">
         <div class="d-flex flex-wrap">
             <div class="image m-2" style="border: 1px solid pink" v-for="(image, index) in images" :key="index">
-                <img :src="image.src" :alt="image.alt" v-show="image.status"> t
+               oi tes <img :src="image.src" :alt="image.alt" v-show="image.status">
             </div>
         </div>
     </div>
