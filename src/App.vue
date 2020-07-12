@@ -12,7 +12,7 @@
           <button class="btn btn-info" :disabled="previousIsDisabled" >Próximo</button>
         </router-link>
         <div class="slide-count">
-          {{slideCount}} testinho
+          {{slideCount}}
         </div>
         <router-link :to="next">
           <button class="btn btn-info" :disabled="nextIsDisabled" >Próximo</button>

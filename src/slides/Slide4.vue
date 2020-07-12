@@ -13,11 +13,11 @@ export default {
     data () {
         return {
             images: [
-                {status: true, alt: 'certificado', src: '/images/certificado1.png'},
-                {status: false, alt: 'certificado', src: '/images/certificado3.png'},
-                {status: false, alt: 'certificado', src: '/images/certificado4.png'},
-                {status: true, alt: 'certificado', src: '/images/certificado5.png'},
-                {status: false, alt: 'github', src: '/images/github.png'},
+                {status: true, alt: 'certificado', src: '/images/certificado1-min.png'},
+                {status: false, alt: 'certificado', src: '/images/certificado2-min.png'},
+                {status: false, alt: 'certificado', src: '/images/certificado3-min.png'},
+                {status: true, alt: 'certificado', src: '/images/certificado4-min.png'},
+                {status: false, alt: 'github', src: '/images/github-min.png'},
             ],
         };
     },
