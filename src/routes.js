@@ -7,7 +7,6 @@ const Slide6 = () => import('./slides/Slide6.vue');
 const Slide7 = () => import('./slides/Slide7.vue');
 const Slide8 = () => import('./slides/Slide8.vue');
 
-
 export const routes = [
     { path: '/1', component: Slide1, name: 1 },
     { path: '/2', component: Slide2, name: 2 },
