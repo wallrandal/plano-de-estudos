@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>Definindo a escala de Prioridades</h1>
+        <h1>Ferramentas de estudos</h1>
         <br>
         <p>
             <ol>
-                <li>Estudos voltados para o que eu trabalho;</li>
-                <li>Estudos voltados para o que eu gosto;</li>
-                <li>Estudos voltados para o que eu quero trabalhar no futuro.</li>
+                <li>Hardwares</li>
+                <li>Softwares</li>
+                <li>Outros</li>
             </ol>
         </p>
     </div>

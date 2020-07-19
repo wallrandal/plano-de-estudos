@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>Definindo a escala de Prioridades</h1>
+        <h1>Definindo a rotina de estudos</h1>
         <br>
         <p>
             <ol>
-                <li>Estudos voltados para o que eu trabalho;</li>
-                <li>Estudos voltados para o que eu gosto;</li>
-                <li>Estudos voltados para o que eu quero trabalhar no futuro.</li>
+                <li>Prioridade 1: 5 a 7 vezes por semana;</li>
+                <li>Prioridade 2: 2 a 3 vezes por semana;</li>
+                <li>Prioridade 3: Uma vez por semana;</li>
             </ol>
         </p>
     </div>
