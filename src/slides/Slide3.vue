@@ -8,3 +8,17 @@
         </figure>
     </div>
 </template>
+<style lang="scss" scoped >
+$breakpoint-tablet: 768px;
+
+img {
+    width: 36vw;
+}
+
+/* Using plain CSS */
+@media (max-width: $breakpoint-tablet) {
+    img {
+        width: 50vh;
+    }
+}
+</style>
