@@ -1,24 +1,17 @@
-# plano-de-estudos
+# Apresentação: como criar um plano de estudos?
 
-## Project setup
+Este é um simples projeto em Vue + Vue Router feito para facilitar a apresentação da roda de conversa "Como criar um plano de estudos".
+
+## Setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+para compilações
 
-### Compiles and minifies for production
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Contributing
+Pull requests são bem vindos, para grandes mudanças, por favor utilize-se das issues.
